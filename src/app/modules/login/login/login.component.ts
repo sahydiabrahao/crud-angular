@@ -12,7 +12,7 @@ import { UserModel } from '../../../model/UserModel';
 
 export class LoginComponent implements OnInit {
 
-  user : UserModel;
+  user : UserModel = new UserModel();
 
   form_email = new FormControl('', [Validators.required, Validators.email]);
   form_password = new FormControl('', [Validators.required]);

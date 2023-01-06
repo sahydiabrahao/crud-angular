@@ -27,12 +27,12 @@ export class LoginService {
 
   //Pesquisar User por Email
   userFindByEmail(user_email) : Observable<any>{
-    return this.http.get<any>(AppConstants.baseLogin + user_email)
+    return this.http.get<any>(AppConstants.baseLogin + '/' + user_email)
   }
 
   //Registrar User
   userRegister(user : UserModel) : Observable<any>{
-    return this.http.post<any>(AppConstants.baseLogin, user);
+    return this.http.post<any>(AppConstants.baseLogin + '/register' , user);
   }
 
   //Login (Com verificação de token)
@@ -48,7 +48,7 @@ export class LoginService {
       //Armazena o var(token) em camada escondida na variavel "token"
       localStorage.setItem("token",token)
 
-      //console.info("TOKEN: " + localStorage.getItem("token"));
+      console.info("TOKEN: " + localStorage.getItem("token"));
 
       //Redireciona
       this.router.navigate(['contact-book']);
@@ -67,7 +67,7 @@ export class LoginService {
     user.email = user_email;
 
     //Spring: LoginController
-    return this.http.post(AppConstants.baseLogin + 'recover-password/', user).subscribe(data => {
+    return this.http.post(AppConstants.baseLogin + '/recover-password', user).subscribe(data => {
       alert(JSON.parse(JSON.stringify(data)).error);
     },
 

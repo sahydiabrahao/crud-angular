@@ -55,12 +55,12 @@ export class ContactBookService {
 
   //Deletar Telefone
   phoneDelete(contact_id  : Number) : Observable<any>{
-    return this.http.delete(AppConstants.baseContactBook + "delete-phone/" + contact_id , {responseType: 'text'});
+    return this.http.delete(AppConstants.baseContactBook + 'delete-phone/' + contact_id , {responseType: 'text'});
   }
 
   //Relatório de Contatos
   contactReport() {
-    return this.http.get(AppConstants.baseContactBook + "report", {responseType: 'text'}).subscribe(data => {
+    return this.http.get(AppConstants.baseContactBook + 'report', {responseType: 'text'}).subscribe(data => {
       document.querySelector('iframe').src = data;
     });
   }
