@@ -12,7 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderInterceptorModule } from '../service/header.service';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -29,6 +29,7 @@ import { HeaderInterceptorModule } from '../service/header.service';
     MatPaginatorModule,
     MatButtonToggleModule,
     HeaderInterceptorModule,
+    FormsModule
 
   ],
 })

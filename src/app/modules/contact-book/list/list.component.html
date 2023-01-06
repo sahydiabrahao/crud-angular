@@ -16,7 +16,7 @@
 
       <div class="div-search">
         <mat-form-field>
-          <input [formControl]="contact.name" matInput placeholder="" #input autocomplete="off">
+          <input [(ngModel)]="contact.name" matInput placeholder="" #input autocomplete="off">
         </mat-form-field>
         <button (click)="onSearch()" class="btn-search" mat-raised-button>Pesquisar</button>
       </div>
@@ -83,19 +83,19 @@
           </div>
       </mat-toolbar>
 
-      <form [formGroup]="form" class="form">
+      <form class="form">
 
         <div>
           <mat-hint><strong>Nome</strong></mat-hint>
           <mat-form-field class="form-width">
-            <input type="text" matInput  value="" formControlName="nome" autocomplete="off" readonly>
+            <input type="text" matInput  value="" [(ngModel)]="contact.name" autocomplete="off" readonly>
           </mat-form-field>
         </div>
 
         <div>
           <mat-hint><strong>Email</strong></mat-hint>
           <mat-form-field class="form-width">
-            <input type="email" matInput  value="" formControlName="email"
+            <input type="email" matInput  value="" [(ngModel)]="contact.email"
               autocomplete="off" readonly>
           </mat-form-field>
         </div>
@@ -103,28 +103,28 @@
         <div>
           <mat-hint><strong>Data de Nascimento</strong></mat-hint>
           <mat-form-field class="form-width">
-            <input type="text" matInput value="" formControlName="dataNascimento" autocomplete="off" readonly>
+            <input type="text" matInput value="" [(ngModel)]="contact.date" autocomplete="off" readonly>
           </mat-form-field>
         </div>
 
         <div>
           <mat-hint><strong>CEP</strong></mat-hint>
           <mat-form-field class="form-width">
-            <input matInput #postalCode maxlength="8" value="" formControlName="cep" autocomplete="off" readonly>
+            <input matInput #postalCode maxlength="8" value="" [(ngModel)]="contact.zip_code" autocomplete="off" readonly>
           </mat-form-field>
         </div>
 
         <div>
           <mat-hint><strong>CPF</strong></mat-hint>
           <mat-form-field class="form-width">
-            <input type="text" matInput value="" formControlName="cpf" autocomplete="off" readonly>
+            <input type="text" matInput value="" [(ngModel)]="contact.cpf"autocomplete="off" readonly>
           </mat-form-field>
         </div>
 
         <div>
           <mat-hint><strong>Telefones</strong></mat-hint>
           <mat-form-field class="form-width" >
-            <input type="text" matInput value="" formControlName="telefones" autocomplete="off" readonly>
+            <input type="text" matInput value="" [(ngModel)]="contact.phones" autocomplete="off" readonly>
           </mat-form-field>
         </div>
 

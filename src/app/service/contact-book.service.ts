@@ -34,7 +34,7 @@ export class ContactBookService {
   }
 
   //Pesquisar Contato por Nome
-  contactFindByName(user_id : Number, contact_name : Number ) : Observable<any>{
+  contactFindByName(user_id : Number, contact_name : String ) : Observable<any>{
     return this.http.get<any>(AppConstants.baseContactBook + '/find-name/' +  user_id + "/" + contact_name);
   }
 

@@ -61,9 +61,6 @@ button {
 
 .table {
   margin: 0 16px 8px 16px;
-  display: flex;
-  justify-content: space-between;
-
 }
 
 table{
@@ -71,9 +68,8 @@ table{
 }
 
 th, td{
-  width: 30%;
+  width: 33%;
 }
-
 
 .btn-detail {
   background-color: #3F51B5;
@@ -110,8 +106,9 @@ th, td{
 form {
   padding: 16px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr 1fr 1fr);
   margin: 5%;
+
 }
 
 .form-width{
