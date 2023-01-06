@@ -1,0 +1,68 @@
+section {
+  height:calc(100vh);
+  overflow: hidden;
+  background-color:var(--background01);
+  display: flex;
+  direction: row;
+
+}
+
+#div-left {
+  width:50%;
+  margin-left: 15%;
+  margin-top: 10%;
+}
+
+#div-rigth {
+  width:50%;
+  margin: auto;
+}
+
+mat-card{
+  width : 280px;
+  text-align: justify;
+
+}
+
+.title{
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Roboto';
+  font-weight: 400;
+  line-height: 1px;
+
+}
+
+.register {
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-size: 12px;
+
+}
+
+b{
+  color:var(--color04) ;
+  font-weight: 400;
+}
+
+.input{
+  line-height: 12px;
+  margin-bottom: 16px;
+}
+
+mat-form-field {
+  width: 280px
+}
+
+.btn {
+  width: 280px;
+}
+
+.recover {
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-size: 12px;
+}

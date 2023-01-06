@@ -1,1 +1,69 @@
-<p>login works!</p>
+<section>
+  <div id="div-left">
+
+    <mat-card>
+
+      <!--Título-->
+      <div class="title">
+        <h1>Autenticação</h1>
+        <mat-hint >com Java Web Token</mat-hint>
+      </div>
+
+      <!--Registrar-->
+      <div class="register">
+        <mat-hint appearance="fill">
+          <a class="link-register">Registre-se <b (click)="onRegister()">aqui</b></a>
+        </mat-hint>
+      </div>
+
+      <!--Email-->
+      <div class="input">
+        <div>
+          <mat-label>Email</mat-label>
+        </div>
+        <mat-form-field>
+          <mat-label>Digite seu email</mat-label>
+          <input id="email" name="email" type="email" matInput [formControl]=" form_email" placeholder="Ex. pat@example.com" autocomplete="off">
+          <mat-error *ngIf=" form_email.hasError('email') ||  form_email.hasError('required')">
+            Inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!--Senha-->
+      <div class="input">
+        <div>
+          <mat-label>Senha</mat-label>
+        </div>
+        <mat-form-field>
+          <mat-label>Digite sua senha</mat-label>
+          <input id="password" name="password" matInput [type]="hide ? 'password' : 'text'" matInput [formControl]="form_password">
+          <mat-error *ngIf=" form_password.hasError('required')">
+            Inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!--Botão-->
+      <div>
+        <button (click)="onEnter()" class="btn" mat-raised-button color="primary">Entrar</button>
+      </div>
+
+      <!--Recuperar senha-->
+      <div class="recover">
+        <mat-hint appearance="fill">
+          <a>Esqueceu sua senha?<b (click)="onRecover()">Recuperar aqui</b></a>
+        </mat-hint>
+      </div>
+
+    </mat-card>
+
+  </div>
+
+  <div id="div-rigth">
+    <img src="./assets/book.png"
+    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+  </div>
+</section>
+
+

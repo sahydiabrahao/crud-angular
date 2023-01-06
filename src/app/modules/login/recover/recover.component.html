@@ -1,1 +1,53 @@
-<p>recover works!</p>
+<section>
+  <div id="div-left">
+
+    <mat-card>
+
+      <!--Título-->
+      <div class="title">
+        <h1>Recuperar senha</h1>
+      </div>
+
+      <!--Registrar-->
+      <div class="register">
+        <mat-hint appearance="fill">
+          <a class="link-register">Voltar para a <b (click)="onLogin()">tela inicial</b></a>
+        </mat-hint>
+      </div>
+
+      <!--Email-->
+      <div class="input">
+        <div>
+          <mat-label>Email</mat-label>
+        </div>
+        <mat-form-field>
+          <mat-label>Digite seu email</mat-label>
+          <input id="email" type="email" matInput [formControl]="form_email" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="form_email.hasError('email') || form_email.hasError('required')">
+            Inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!--Registrar-->
+      <div class="register">
+        <mat-hint appearance="fill">
+          <a class="link-register">Você receberá um email com a sua nova senha</a>
+        </mat-hint>
+      </div>
+
+      <!--Botão-->
+      <div>
+        <button (click)="onRecover()" class="btn" mat-raised-button color="primary">Enviar</button>
+      </div>
+
+    </mat-card>
+
+  </div>
+
+  <div id="div-rigth">
+    <img src="./assets/book.png"
+    alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+  </div>
+</section>
+
