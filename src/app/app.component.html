@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>APP</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+
+  <mat-drawer-container class="example-container">
+    <!--MENU LATERAL-->
+    <mat-drawer mode="side" opened>
+      <div class="menu-item">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+      <div class="menu-item">
+        <button (click)="onContactBook()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>person</mat-icon>
+        </button>
+      </div>
+      <div class="menu-item">
+        <button (click)="onAdd()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+      <div class="menu-item">
+        <button (click)="onReport()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>leaderboard</mat-icon>
+        </button>
+      </div>
+      <div class="menu-item">
+        <button (click)="onLogout()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content >
+      <!--CONTEÚDO-->
+      <router-outlet>
+      </router-outlet>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</body>
+
+</html>
