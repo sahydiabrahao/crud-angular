@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([''], {relativeTo: this.route});
   }
 
-
   onRegister(){
     this.user.email = this.form_email.value;
     this.user.password = this.form_password.value;

@@ -26,9 +26,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //VERIFICA SE TEM TOKEN
     if(localStorage.getItem('token') == null){
-      //Redireciona
       this.router.navigate(['']);
     }else{
       this.contactBookService.contactFindAll(this.user_id).subscribe(data => {

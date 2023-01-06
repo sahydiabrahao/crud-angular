@@ -1,1 +1,103 @@
-<p>add works!</p>
+<div class="title">
+  <div>
+    <mat-icon>person_add</mat-icon>
+  </div>
+  <div class="text">
+    <h1>Cadastrar</h1>
+    <h5>Cadastrar novo contato</h5>
+  </div>
+</div>
+
+<mat-card>
+  <mat-toolbar class=table-title color="primary">
+    <h3>Cadastro</h3>
+    <button (click)="onSave()" class="btn-search" mat-raised-button>Salvar</button>
+  </mat-toolbar>
+</mat-card>
+
+<mat-card mat-elevation-z8>
+
+  <form class="form">
+
+    <div class="form-item">
+      <mat-hint><strong>ID</strong></mat-hint> <br />
+      <mat-form-field class="form-width">
+        <input name="id" [(ngModel)]="contact.id" type="number" matInput placeholder="" value="" autocomplete="off" readonly>
+      </mat-form-field> <br />
+    </div>
+
+    <div>
+      <mat-hint><strong>Data de Nascimento</strong></mat-hint> <br />
+      <mat-form-field class="form-width">
+        <input name="date" [(ngModel)]="contact.date"  type="date" matInput placeholder="" value="" autocomplete="off">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-hint><strong>Nome</strong></mat-hint><br />
+      <mat-form-field class="form-width">
+        <input name="name" [(ngModel)]="contact.name"  type="text" matInput placeholder="Ex. Nome" value="" autocomplete="off">
+      </mat-form-field> <br />
+    </div>
+
+    <div>
+      <mat-hint><strong>CEP</strong></mat-hint><br />
+      <mat-form-field class="form-width">
+        <input name="zip_code" [(ngModel)]="contact.zip_code" matInput #postalCode maxlength="8" placeholder="Ex. 78300033" value="" autocomplete="off">
+      </mat-form-field> <br />
+    </div>
+
+    <div>
+      <mat-hint><strong>Email</strong></mat-hint> <br />
+      <mat-form-field class="form-width">
+        <input name="email" [(ngModel)]="contact.email" type="email" matInput placeholder="Ex. exemplo@gmail.com" value="" autocomplete="off">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-hint><strong>CPF</strong></mat-hint><br />
+      <mat-form-field class="form-width">
+        <input name="cpf" [(ngModel)]="contact.cpf" type="text" matInput maxlength="11" placeholder="Ex. 12345678900" value="" autocomplete="off">
+      </mat-form-field> <br />
+    </div>
+
+  </form>
+
+</mat-card>
+
+
+<mat-card>
+  <mat-toolbar class=table-title color="primary">
+    <h3>Telefones</h3>
+    <div class="div-search">
+      <mat-form-field >
+        <input name="number" [(ngModel)]="phone.number" matInput placeholder="" #input autocomplete="off" >
+      </mat-form-field>
+      <button (click)="onAddPhone()" class="btn-search" mat-raised-button>Adicionar</button>
+    </div>
+  </mat-toolbar>
+</mat-card>
+<div class="table mat-elevation-z8">
+  <table >
+    <thead >
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let phone of contact.phones">
+        <td>
+          <mat-hint><strong>
+            <i class="material-icons">call</i>
+          </strong></mat-hint>
+          &nbsp;&nbsp;
+          <mat-hint>
+           {{phone.number}}
+         </mat-hint>
+        </td>
+        <td>
+          <button (click)="onDeletePhone(phone.number)" class="btn-delete" mat-raised-button>Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
