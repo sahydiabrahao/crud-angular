@@ -25,42 +25,42 @@ export class ContactBookService {
 
   //Pesquisar Todos os Contatos por user_id
   contactFindAll(user_id : Number) : Observable<any>{
-    return this.http.get<any>(AppConstants.baseContactBook + 'find/' + user_id);
+    return this.http.get<any>(AppConstants.baseContactBook + '/find/' + user_id);
   }
 
   //Pesquisar Contato por Id
   contactFindById(user_id : Number, contact_id : Number) : Observable<any>{
-    return this.http.get<any>(AppConstants.baseContactBook + 'find-id/' + user_id + "/" + contact_id);
+    return this.http.get<any>(AppConstants.baseContactBook + '/find-id/' + user_id + "/" + contact_id);
   }
 
   //Pesquisar Contato por Nome
   contactFindByName(user_id : Number, contact_name : Number ) : Observable<any>{
-    return this.http.get<any>(AppConstants.baseContactBook + 'find-name/' +  user_id + "/" + contact_name);
+    return this.http.get<any>(AppConstants.baseContactBook + '/find-name/' +  user_id + "/" + contact_name);
   }
 
   //Salvar Contato
   contactSave(contact : ContactModel) : Observable<any>{
-    return this.http.post<any>(AppConstants.baseContactBook + 'save', contact);
+    return this.http.post<any>(AppConstants.baseContactBook + '/save', contact);
   }
 
   //Atualizar Contato
   contactUpdate(contact : ContactModel) : Observable<any>{
-    return this.http.put<any>(AppConstants.baseContactBook + 'update', contact);
+    return this.http.put<any>(AppConstants.baseContactBook + '/update', contact);
   }
 
   //Deletar Contato
   contactDelete(contact_id  : Number) : Observable<any>{
-    return this.http.delete(AppConstants.baseContactBook + 'delete/' + contact_id , {responseType: 'text'});
+    return this.http.delete(AppConstants.baseContactBook + '/delete/' + contact_id , {responseType: 'text'});
   }
 
   //Deletar Telefone
   phoneDelete(contact_id  : Number) : Observable<any>{
-    return this.http.delete(AppConstants.baseContactBook + 'delete-phone/' + contact_id , {responseType: 'text'});
+    return this.http.delete(AppConstants.baseContactBook + '/delete-phone/' + contact_id , {responseType: 'text'});
   }
 
   //Relatório de Contatos
   contactReport() {
-    return this.http.get(AppConstants.baseContactBook + 'report', {responseType: 'text'}).subscribe(data => {
+    return this.http.get(AppConstants.baseContactBook + '/report', {responseType: 'text'}).subscribe(data => {
       document.querySelector('iframe').src = data;
     });
   }

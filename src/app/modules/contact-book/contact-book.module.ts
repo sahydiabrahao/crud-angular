@@ -6,13 +6,15 @@ import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
 import { ReportComponent } from './report/report.component';
 import { EditComponent } from './edit/edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [AddComponent, ListComponent, ReportComponent, EditComponent],
   imports: [
     CommonModule,
-    ContactBookRoutingModule
+    ContactBookRoutingModule,
+    SharedModule
   ]
 })
 export class ContactBookModule { }
