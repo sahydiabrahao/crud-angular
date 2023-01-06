@@ -62,12 +62,9 @@ export class LoginService {
 
   //Recuperar Senha
   userRecoverPassword(user_email: any){
-
-    let user = new UserModel();
-    user.email = user_email;
-
+    console.log(user_email)
     //Spring: LoginController
-    return this.http.post(AppConstants.baseLogin + '/recover-password', user).subscribe(data => {
+    return this.http.post(AppConstants.baseLogin + '/recover-password', user_email).subscribe(data => {
       alert(JSON.parse(JSON.stringify(data)).error);
     },
 

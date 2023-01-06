@@ -11,7 +11,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class RecoverComponent implements OnInit {
 
-  user : UserModel;
+  user : UserModel = new UserModel();
 
   form_email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -28,7 +28,7 @@ export class RecoverComponent implements OnInit {
 
   onRecover(){
     this.user.email = this.form_email.value;
-    this.loginService.userRecoverPassword(this.user.email);
+    this.loginService.userRecoverPassword(this.user);
   }
 
   onLogin(){
