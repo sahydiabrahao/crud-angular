@@ -20,10 +20,9 @@ export class AddComponent implements OnInit {
   data = this.contact.phones;
 
   constructor(
-    private formBuilder: FormBuilder,
     private router : Router,
     private contactBookService : ContactBookService
-    ) { }
+  ) { }
 
   ngOnInit() {
     if(localStorage.getItem('token') == null){
@@ -48,9 +47,9 @@ export class AddComponent implements OnInit {
     return this.data;
   }
 
-  onDeletePhone(numero) {
+  onDeletePhone(number) {
     for (let i = 0; i < this.contact.phones.length; i++ ){
-      if(numero == this.contact.phones[i].number){
+      if(number == this.contact.phones[i].number){
         this.contact.phones.splice(i,1);
       }
     }

@@ -31,6 +31,7 @@ export class ListComponent implements OnInit {
     }else{
       this.contactBookService.contactFindAll(this.user_id).subscribe(data => {
         this.contacts = data;
+        console.log(this.contacts)
       });
     }
   }
