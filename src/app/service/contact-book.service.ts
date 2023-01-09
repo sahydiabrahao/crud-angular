@@ -45,7 +45,7 @@ export class ContactBookService {
 
   //Atualizar Contato
   contactUpdate(contact : ContactModel) : Observable<any>{
-    return this.http.put<any>(AppConstants.baseContactBook + '/update', contact);
+    return this.http.put<any>(AppConstants.baseContactBook + '/updateContact', contact);
   }
 
   //Deletar Contato
