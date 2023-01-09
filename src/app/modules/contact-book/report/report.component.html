@@ -1,1 +1,59 @@
-<p>report works!</p>
+<div class="title">
+  <div>
+    <mat-icon>leaderboard</mat-icon>
+  </div>
+  <div class="text">
+    <h1>Relatório</h1>
+    <h5>Relatórios em pdf</h5>
+  </div>
+</div>
+
+<mat-card>
+  <mat-toolbar class=table-title color="primary">
+    <h3>Relatório</h3>
+    <button (click)="onGenerate()" class="btn-search" mat-raised-button>Gerar</button>
+  </mat-toolbar>
+</mat-card>
+
+
+<div class="table mat-elevation-z8">
+
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle (click)="onReport()" value="bold">Relatório Geral</mat-button-toggle>
+      <mat-button-toggle (click)="onReportDate()" value="italic">Relatório por Data</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <form class="form" *ngIf="showDate">
+    <mat-hint><strong>Data de Início</strong></mat-hint> <br />
+    <mat-form-field class="form-width">
+      <input name="date" [(ngModel)]="report.date_start" type="date" matInput placeholder="" value="" autocomplete="off">
+    </mat-form-field><br />
+    <mat-hint><strong>Data de Fim</strong></mat-hint><br />
+    <mat-form-field class="form-width">
+      <input name="date" [(ngModel)]="report.date_end" type="date" matInput placeholder="" value="" autocomplete="off">
+    </mat-form-field>
+  </form>
+
+</div>
+
+
+
+<ng-container *ngIf="showModal">
+  <div class="modal">
+    <mat-card >
+      <mat-toolbar class=table-title color="primary">
+          <h3>Relatório</h3>
+          <div>
+            <button (click)="onClose()" mat-icon-button >
+              <mat-icon class="btn-exit" >close</mat-icon>
+            </button>
+          </div>
+      </mat-toolbar>
+      <iframe id="pdf" width="100%" heigth="500px" style="height: 450px;"  frameborder="0" allowtrasparency="true" >
+      </iframe>
+    </mat-card>
+
+    <ng-content></ng-content>
+  </div>
+  <div class="overlay"></div>
+</ng-container>

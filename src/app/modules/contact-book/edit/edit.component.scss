@@ -42,13 +42,13 @@ h3 {
 
 button {
   margin-left: 16px;
-  color: #FFFFFF;
+  color:var(--color01);
   width: 90px;
   text-align: center;
 }
 
 .btn-search {
-  background-color: #fafafa;
+  background-color: var(--background01);
   width: 100px;
   color: #292929;
   text-align: center;
@@ -83,5 +83,5 @@ th, td{
 }
 
 .btn-delete {
-  background-color: #DC3545;
+  background-color: var(--color05)
 }
