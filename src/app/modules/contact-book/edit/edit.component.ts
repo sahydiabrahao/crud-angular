@@ -50,13 +50,13 @@ export class EditComponent implements OnInit {
   }
 
   onAddPhone(){
-    if(this.contact.phones === undefined){
-     this.contact.phones = new Array<PhoneModel>();
-    }
-    //Insere telefone na lista de telefones
-    this.contact.phones.push(this.phone);
-    this.phone = new PhoneModel();
-    return this.data;
+    console.log(this.phone);
+
+    this.phone.contact_id = this.user_id;
+
+    this.contactBookService.phoneUpdateAdd(this.phone).subscribe (data => {
+      console.info("Editar Telefone OK: " + data)
+    });
   }
 
   onDeletePhone(number) {

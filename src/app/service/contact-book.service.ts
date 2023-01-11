@@ -4,6 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AppConstants } from '../app-constants';
 import { ContactModel } from '../model/ContactModel';
 import { ReportModel } from '../model/ReportModel';
+import { PhoneModel } from '../model/PhoneModel';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,11 @@ export class ContactBookService {
   //Atualizar Contato
   contactUpdate(contact : ContactModel) : Observable<any>{
     return this.http.put<any>(AppConstants.baseContactBook + '/updateContact', contact);
+  }
+
+  //Atualizar Telefone do Contato
+  phoneUpdateAdd(phone : PhoneModel) : Observable<any>{
+    return this.http.post<any>(AppConstants.baseContactBook + '/phoneUpdateAdd', phone);
   }
 
   //Deletar Contato

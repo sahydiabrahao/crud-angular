@@ -49,7 +49,7 @@ export class ListComponent implements OnInit {
     }
   }
 
-  onDetail (contact_id : Number,) {
+  onDetail (contact_id : Number) {
     this.showModal = !this.showModal;
 
     if( contact_id != null ){
@@ -57,6 +57,10 @@ export class ListComponent implements OnInit {
         this.contact = data;
       });
     }
+  }
+
+  onCloseDetail() {
+    this.showModal = !this.showModal;
   }
 
   onEdit(contact_id : Number){
