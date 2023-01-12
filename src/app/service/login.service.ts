@@ -51,7 +51,7 @@ export class LoginService {
       console.info("TOKEN: " + localStorage.getItem("token"));
 
       //Redireciona
-      this.router.navigate(['contact-book']);
+      //this.router.navigate(['contact-book']);
 
     },
     ErrorEvent => {
