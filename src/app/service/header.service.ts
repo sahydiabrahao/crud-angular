@@ -12,16 +12,9 @@ export class HeaderService implements HttpInterceptor {
     if (localStorage.getItem('token') !== null) {
       const token = 'Bearer ' + localStorage.getItem('token');
 
-      const headers = new HttpHeaders({
-        'Authorization': token,
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
-        "Access-Control-Allow-Headers": "Access-Control-Allow-Methods, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Origin, Content-Type",
-        "Access-Control-Allow-Credentials": "true"
+      const tokenRequest = req.clone({
+        headers: req.headers.set('Authorization', token)
       });
-
-      const tokenRequest = req.clone({ headers});
-
       //Incluindo Processamento de Erro
       return next.handle(tokenRequest).pipe(
         tap((event: HttpEvent<any>) => {
