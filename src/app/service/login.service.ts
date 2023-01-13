@@ -55,7 +55,7 @@ export class LoginService {
 
     },
     ErrorEvent => {
-      alert("user ou Senha Incorretos!")
+      alert("Usuário ou Senha Incorretos!")
       console.error("Erro ao fazer login")
     });
   }
