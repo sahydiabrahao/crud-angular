@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
       //Usuário ID Logado
       localStorage.setItem('user_id', data.id );
-      this.router.navigate(['contact-book']);
+      this.router.navigate(['contact-book'], null);
     });
   }
 

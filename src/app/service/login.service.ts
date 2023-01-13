@@ -48,7 +48,7 @@ export class LoginService {
       //Armazena o var(token) em camada escondida na variavel "token"
       localStorage.setItem("token",token)
 
-      console.info("TOKEN: " + localStorage.getItem("token"));
+      //console.info("TOKEN: " + localStorage.getItem("token"));
 
       //Redireciona
       //this.router.navigate(['contact-book']);
