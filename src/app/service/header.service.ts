@@ -1,5 +1,5 @@
 import { Injectable, NgModule } from '@angular/core';
-import { HttpInterceptor, HTTP_INTERCEPTORS, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpInterceptor, HTTP_INTERCEPTORS, HttpEvent, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError, tap} from 'rxjs/operators';
 
@@ -12,9 +12,16 @@ export class HeaderService implements HttpInterceptor {
     if (localStorage.getItem('token') !== null) {
       const token = 'Bearer ' + localStorage.getItem('token');
 
-      const tokenRequest = req.clone({
-        headers: req.headers.set('Authorization', token)
+      const headers = new HttpHeaders({
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
+        "Access-Control-Allow-Headers": "Access-Control-Allow-Methods, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Origin, Content-Type",
+        "Access-Control-Allow-Credentials": "true"
       });
+
+      const tokenRequest = req.clone({ headers});
+
       //Incluindo Processamento de Erro
       return next.handle(tokenRequest).pipe(
         tap((event: HttpEvent<any>) => {
