@@ -1,5 +1,3 @@
-# CrudAngular
-
 # Agenda de contatos
 
 Projeto CRUD com Angular e Spring Framework
