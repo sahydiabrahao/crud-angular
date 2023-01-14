@@ -1,5 +1,7 @@
 # CrudAngular
 
-Projeto CRUD (Agenda de contatos) com Angular e Spring Framework
+Projeto CRUD com Angular e Spring Framework
+
+Agenda de contatos
 
 https://crud-angular.onrender.com
