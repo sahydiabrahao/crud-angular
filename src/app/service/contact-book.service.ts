@@ -5,6 +5,7 @@ import { AppConstants } from '../app-constants';
 import { ContactModel } from '../model/ContactModel';
 import { PhoneModel } from '../model/PhoneModel';
 import { MatSnackBar } from '@angular/material';
+import { stringify } from 'querystring';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,8 +51,11 @@ export class ContactBookService {
   }
 
   //Atualizar Telefone do Contato
-  phoneUpdate(contact_id  : Number, phone_id : Number) : Observable<any>{
-    return this.http.put<any>(AppConstants.baseContactBook + '/phoneUpdate', [contact_id , phone_id]);
+  phoneUpdate(contact_id  : Number, phone_id : Number, phone_number : String) : Observable<any>{
+
+    var array_data : [Number, Number, String] = [contact_id, phone_id , phone_number];
+
+    return this.http.put<any>(AppConstants.baseContactBook + '/phoneUpdate', array_data);
   }
 
   //Deletar Contato

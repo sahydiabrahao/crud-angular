@@ -50,8 +50,8 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onEditPhone(phone_id) {
-    this.contactBookService.phoneUpdate(this.user_id, phone_id).subscribe (data => {
+  onEditPhone(phone_id, phone_number) {
+    this.contactBookService.phoneUpdate(this.user_id, phone_id, phone_number).subscribe (data => {
       console.info(data)
     });
   }
