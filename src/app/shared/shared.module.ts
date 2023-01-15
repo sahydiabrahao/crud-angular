@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderInterceptorModule } from '../service/header.service';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   exports: [
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonToggleModule,
     HeaderInterceptorModule,
     FormsModule,
+    MatSnackBar
 
   ],
 })

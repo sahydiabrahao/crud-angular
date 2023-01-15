@@ -40,8 +40,10 @@ export class RegisterComponent implements OnInit {
     this.loginService.userRegister(this.user).subscribe (data => {
       this.snackBar.open('Usuário registrado com sucesso.', 'x', {
         duration: 3000,
-        panelClass: ['msg-success']
+        panelClass: ['msg-success'],
+        verticalPosition: 'top'
       });
+      console.log(data)
     })
   };
 
