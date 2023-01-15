@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppConstants } from '../app-constants';
 import { UserModel } from '../model/UserModel';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class LoginService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar : MatSnackBar
   ) { }
 
   //Autenticação (Token Existe?)
@@ -74,4 +76,19 @@ export class LoginService {
     });
   }
 
+  messageSuccess(message : string){
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      panelClass: ['msg-error'],
+      verticalPosition: 'top'
+    });
+  }
+
+  messageError(message : string){
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      panelClass: ['msg-error'],
+      verticalPosition: 'top'
+    });
+  }
 }

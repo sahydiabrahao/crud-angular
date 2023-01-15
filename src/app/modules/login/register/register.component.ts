@@ -3,7 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from 'src/app/model/UserModel';
 import { LoginService } from 'src/app/service/login.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -25,6 +24,7 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   onLogin(){
@@ -36,9 +36,8 @@ export class RegisterComponent implements OnInit {
     this.user.password = this.form_password.value;
 
     this.loginService.userRegister(this.user).subscribe (data => {
-      snackBar.open('Usuário registrado com sucesso.', 'Undo', {
-        duration: 3000
-      });
+      this.loginService.messageError('Usuário registrado com sucesso.')
+      console.log(data);
     })
   };
 

@@ -19,3 +19,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --color05:  #DC3545;
   --color06:  #333333;
 }
+
+.msg-success {
+  background-color: var(--color03);
+  color: var(--color01);
+}
+
+.msg-error {
+  background-color: var(--color05);
+  color: var(--color01);
+}
