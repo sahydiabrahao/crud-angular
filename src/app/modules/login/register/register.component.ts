@@ -36,8 +36,9 @@ export class RegisterComponent implements OnInit {
     this.user.password = this.form_password.value;
 
     this.loginService.userRegister(this.user).subscribe (data => {
-
-      console.info("Usuário Registrado: " + data)
+      snackBar.open('Usuário registrado com sucesso.', 'Undo', {
+        duration: 3000
+      });
     })
   };
 
