@@ -59,6 +59,11 @@ export class EditComponent implements OnInit {
   onDeletePhone(phone_id) {
     this.contactBookService.phoneDelete(phone_id).subscribe (data => {
       this.contactBookService.messageSuccess('Telefone exlcuído com sucesso.')
+      for (let i = 0; i < this.contact.phones.length; i++ ){
+        if(phone_id == this.contact.phones[i].id){
+          this.contact.phones.splice(i,1);
+        }
+      }
       console.info(data)
     });
   }
