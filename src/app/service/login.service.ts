@@ -79,7 +79,7 @@ export class LoginService {
   messageSuccess(message : string){
     this.snackBar.open(message, '', {
       duration: 3000,
-      panelClass: ['msg-error'],
+      panelClass: ['msg-success'],
       verticalPosition: 'top'
     });
   }
