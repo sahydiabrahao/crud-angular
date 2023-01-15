@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from 'src/app/model/UserModel';
 import { LoginService } from 'src/app/service/login.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -40,5 +41,4 @@ export class RegisterComponent implements OnInit {
       console.log(data);
     })
   };
-
 }
