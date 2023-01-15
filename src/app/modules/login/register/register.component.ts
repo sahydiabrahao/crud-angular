@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from 'src/app/model/UserModel';
 import { LoginService } from 'src/app/service/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private loginService : LoginService,
+    private snackBar : MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -36,8 +38,9 @@ export class RegisterComponent implements OnInit {
     this.user.password = this.form_password.value;
 
     this.loginService.userRegister(this.user).subscribe (data => {
-      snackBar.open('Usuário registrado com sucesso.', 'Undo', {
-        duration: 3000
+      this.snackBar.open('Usuário registrado com sucesso.', 'x', {
+        duration: 3000,
+        panelClass: ['msg-success']
       });
     })
   };
