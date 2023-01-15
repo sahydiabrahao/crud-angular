@@ -29,6 +29,7 @@ export class RecoverComponent implements OnInit {
   onRecover(){
     this.user.email = this.form_email.value;
     this.loginService.userRecoverPassword(this.user);
+    this.loginService.messageSuccess('Senha nova enviado com sucesso.')
   }
 
   onLogin(){

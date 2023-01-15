@@ -3,16 +3,16 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AppConstants } from '../app-constants';
 import { ContactModel } from '../model/ContactModel';
-import { ReportModel } from '../model/ReportModel';
 import { PhoneModel } from '../model/PhoneModel';
-
+import { MatSnackBar } from '@angular/material';
 @Injectable({
   providedIn: 'root'
 })
 export class ContactBookService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar : MatSnackBar
   ) { }
 
   //Autenticação (Token Existe?)
@@ -68,6 +68,22 @@ export class ContactBookService {
   contactReport() {
     return this.http.get(AppConstants.baseContactBook + '/report', {responseType: 'text'}).subscribe(data => {
       document.querySelector('iframe').src = data;
+    });
+  }
+
+  messageSuccess(message : string){
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      panelClass: ['msg-success'],
+      verticalPosition: 'top'
+    });
+  }
+
+  messageError(message : string){
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      panelClass: ['msg-error'],
+      verticalPosition: 'top'
     });
   }
 

@@ -33,7 +33,8 @@ export class AddComponent implements OnInit {
   onSave(){
     this.contact.user_id = this.user_id;
     this.contactBookService.contactSave(this.contact).subscribe (data => {
-      console.info("Salvar OK: " + data)
+      this.contactBookService.messageSuccess('Contato salvo com sucesso.')
+      console.info(data)
     });
   }
 

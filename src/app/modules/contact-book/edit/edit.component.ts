@@ -55,7 +55,8 @@ export class EditComponent implements OnInit {
     this.phone.contact_id = this.user_id;
 
     this.contactBookService.phoneUpdateAdd(this.phone).subscribe (data => {
-      console.info("Editar Telefone OK: " + data)
+      this.contactBookService.messageSuccess('Contato editado com sucesso.')
+      console.info(data)
     });
   }
 

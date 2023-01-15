@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppConstants } from '../app-constants';
 import { UserModel } from '../model/UserModel';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
-    private route: ActivatedRoute,
-    private snackBar : MatSnackBar
+    private snackBar : MatSnackBar,
+    private router : Router
   ) { }
 
   //Autenticação (Token Existe?)
@@ -53,12 +52,16 @@ export class LoginService {
       //console.info("TOKEN: " + localStorage.getItem("token"));
 
       //Redireciona
-      //this.router.navigate(['contact-book']);
+      this.router.navigate(['contact-book']);
 
     },
     ErrorEvent => {
-      alert("Usuário ou Senha Incorretos!")
-      console.error("Erro ao fazer login")
+      this.snackBar.open('Usuário ou Senha incorretos.', '', {
+        duration: 3000,
+        panelClass: ['msg-error'],
+        verticalPosition: 'top'
+      });
+      console.error("Usuário ou Senha incorretos.")
     });
   }
 
@@ -71,8 +74,12 @@ export class LoginService {
     },
 
     ErrorEvent => {
-      alert("Não foi possível recuperar Login!")
-      console.error("Não foi possível recuperar Login!")
+      console.error("Erro ao tentar recuperar senha")
+      this.snackBar.open('Erro ao tentar recuperar senha.', '', {
+        duration: 3000,
+        panelClass: ['msg-error'],
+        verticalPosition: 'top'
+      });
     });
   }
 

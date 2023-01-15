@@ -71,7 +71,8 @@ export class ListComponent implements OnInit {
     if(confirm("Você tem certeza que deseja deletar este registro?")){
       //Service: Deletar ID
       this.contactBookService.contactDelete(contact_id).subscribe(data => {
-        console.log('Contato Excluido: ' + data)
+        console.log(data)
+        this.contactBookService.messageSuccess('Contato excluido com sucesso.')
 
         this.contactBookService.contactFindAll(this.user_id).subscribe(data => {
           this.contacts = data;
