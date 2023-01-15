@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
     this.loginService.userRegister(this.user).subscribe (data => {
       this.loginService.messageError('Usuário registrado com sucesso.')
-      console.log(data);
+      console.log(data) ;
     })
   };
 }
