@@ -13,6 +13,7 @@ import { ContactBookService } from 'src/app/service/contact-book.service';
 export class EditComponent implements OnInit {
 
   user_id = parseInt(localStorage.getItem('user_id'));
+  contact_id : Number;
 
   contact = new ContactModel();
   phone = new PhoneModel();
@@ -33,10 +34,10 @@ export class EditComponent implements OnInit {
     }
 
     //Captura ID na URL
-    let contact_id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
+    this.contact_id = parseInt(this.routeActive.snapshot.paramMap.get('id'));
 
-    if( contact_id != null ){
-      this.contactBookService.contactFindById(this.user_id, contact_id).subscribe(data => {
+    if( this.contact_id != null ){
+      this.contactBookService.contactFindById(this.user_id, this.contact_id).subscribe(data => {
         this.contact = data;
         console.log(this.contact)
       });
@@ -51,7 +52,7 @@ export class EditComponent implements OnInit {
   }
 
   onEditPhone(phone_id, phone_number) {
-    this.contactBookService.phoneUpdate(this.user_id, phone_id, phone_number).subscribe (data => {
+    this.contactBookService.phoneUpdate(this.contact_id , phone_id, phone_number).subscribe (data => {
       console.info(data)
     });
   }
