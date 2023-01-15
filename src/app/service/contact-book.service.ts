@@ -50,8 +50,8 @@ export class ContactBookService {
   }
 
   //Atualizar Telefone do Contato
-  phoneUpdateAdd(phone : PhoneModel) : Observable<any>{
-    return this.http.post<any>(AppConstants.baseContactBook + '/phoneUpdateAdd', phone);
+  phoneUpdate(contact_id  : Number, phone_id : Number) : Observable<any>{
+    return this.http.put<any>(AppConstants.baseContactBook + '/phoneUpdate', [contact_id , phone_id]);
   }
 
   //Deletar Contato
@@ -60,8 +60,8 @@ export class ContactBookService {
   }
 
   //Deletar Telefone
-  phoneDelete(contact_id  : Number) : Observable<any>{
-    return this.http.delete(AppConstants.baseContactBook + '/delete-phone/' + contact_id , {responseType: 'text'});
+  phoneDelete(phone_id  : Number) : Observable<any>{
+    return this.http.delete(AppConstants.baseContactBook + '/delete-phone/' + phone_id  , {responseType: 'text'});
   }
 
   //Relatório de Contatos

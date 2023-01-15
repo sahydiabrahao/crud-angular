@@ -50,16 +50,15 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onDeletePhone(phone_number) {
-    this.contactBookService.phoneUpdateAdd(phone_number).subscribe (data => {
-      this.contactBookService.messageSuccess('Telefone exlcuído com sucesso.')
+  onEditPhone(phone_id) {
+    this.contactBookService.phoneUpdate(this.user_id, phone_id).subscribe (data => {
       console.info(data)
     });
   }
 
-
-  onEditPhone(phone_number) {
-    this.contactBookService.phoneUpdateAdd(phone_number).subscribe (data => {
+  onDeletePhone(phone_id) {
+    this.contactBookService.phoneDelete(phone_id).subscribe (data => {
+      this.contactBookService.messageSuccess('Telefone exlcuído com sucesso.')
       console.info(data)
     });
   }
