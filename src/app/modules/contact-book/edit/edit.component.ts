@@ -45,27 +45,23 @@ export class EditComponent implements OnInit {
 
   onUpdate(){
     this.contactBookService.contactUpdate(this.contact).subscribe (data => {
-      console.info("Editar OK: " + data)
-    });
-  }
-
-  onAddPhone(){
-    console.log(this.phone);
-
-    this.phone.contact_id = this.user_id;
-
-    this.contactBookService.phoneUpdateAdd(this.phone).subscribe (data => {
       this.contactBookService.messageSuccess('Contato editado com sucesso.')
       console.info(data)
     });
   }
 
-  onDeletePhone(number) {
-    for (let i = 0; i < this.contact.phones.length; i++ ){
-      if(number == this.contact.phones[i].number){
-        this.contact.phones.splice(i,1);
-      }
-    }
+  onDeletePhone(phone_number) {
+    this.contactBookService.phoneUpdateAdd(phone_number).subscribe (data => {
+      this.contactBookService.messageSuccess('Telefone exlcuído com sucesso.')
+      console.info(data)
+    });
+  }
+
+
+  onEditPhone(phone_number) {
+    this.contactBookService.phoneUpdateAdd(phone_number).subscribe (data => {
+      console.info(data)
+    });
   }
 
 }

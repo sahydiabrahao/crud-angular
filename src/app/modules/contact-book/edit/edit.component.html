@@ -68,16 +68,14 @@
   <mat-toolbar class=table-title color="primary">
     <h3>Telefones</h3>
     <div class="div-search">
-      <mat-form-field >
-        <input name="number" [(ngModel)]="phone.number" matInput placeholder="" #input autocomplete="off" >
-      </mat-form-field>
-      <button (click)="onAddPhone()" class="btn-search" mat-raised-button>Adicionar</button>
     </div>
   </mat-toolbar>
 </mat-card>
+
+
+
 <div class="table mat-elevation-z8">
   <table mat-table [dataSource]="contact.phones" matSort>
-
     <!-- Telefone -->
     <ng-container matColumnDef="number">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
@@ -86,18 +84,15 @@
 
     <!-- Botões -->
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Botões </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
       <td mat-cell *matCellDef="let row">
-        <button class="btn-delete" mat-raised-button>Excluir</button>
+        <button (click)='onEditPhone(row.number)' class="btn-edit" mat-raised-button>Editar</button>
+        <button (click)='onDeletePhone(row.number)' class="btn-delete" mat-raised-button>Excluir</button>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    <!-- Row shown when there is no matching data. -->
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-    </tr>
   </table>
 </div>
