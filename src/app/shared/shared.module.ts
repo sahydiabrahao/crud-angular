@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderInterceptorModule } from '../service/header.service';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   exports: [
@@ -31,7 +32,8 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonToggleModule,
     HeaderInterceptorModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
 
   ],
 })

@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
+  showSpinner = false;
+
   constructor(
     private loginService : LoginService,
     private router: Router,
@@ -34,10 +36,14 @@ export class LoginComponent implements OnInit {
 
     this.loginService.userLogin(this.user);
 
+    this.showSpinner = true;
+
     this.loginService.userFindByEmail(this.user.email).subscribe(data => {
       localStorage.setItem('user_id', data.id );
       this.loginService.messageSuccess('Login realizado com sucesso.')
       this.router.navigate(['login/contact-book'], {relativeTo: this.route});
+      this.showSpinner = false;
+
     });
   }
 
