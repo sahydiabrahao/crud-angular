@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
     this.loginService.userFindByEmail(this.user.email).subscribe(data => {
       localStorage.setItem('user_id', data.id );
       this.loginService.messageSuccess('Login realizado com sucesso.')
+      this.router.navigate(['login/contact-book'], {relativeTo: this.route});
     });
   }
 
