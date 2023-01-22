@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class RegisterComponent implements OnInit {
 
+  showSpinner = false;
+
   user : UserModel = new UserModel();
 
   form_email = new FormControl('', [Validators.required, Validators.email]);
@@ -35,10 +37,12 @@ export class RegisterComponent implements OnInit {
   onRegister(){
     this.user.email = this.form_email.value;
     this.user.password = this.form_password.value;
+    this.showSpinner = true;
 
     this.loginService.userRegister(this.user).subscribe (data => {
       this.loginService.messageSuccess('Usuário registrado com sucesso.')
       console.log(data) ;
+      this.showSpinner = false;
     })
   };
 }
