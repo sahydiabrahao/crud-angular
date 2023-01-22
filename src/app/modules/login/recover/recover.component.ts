@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class RecoverComponent implements OnInit {
 
+  showSpinner = false;
+
   user : UserModel = new UserModel();
 
   form_email = new FormControl('', [Validators.required, Validators.email]);
@@ -27,9 +29,11 @@ export class RecoverComponent implements OnInit {
   }
 
   onRecover(){
+    this.showSpinner = true;
     this.user.email = this.form_email.value;
     this.loginService.userRecoverPassword(this.user);
     this.loginService.messageSuccess('Senha nova enviado com sucesso.')
+    this.showSpinner = false;
   }
 
   onLogin(){

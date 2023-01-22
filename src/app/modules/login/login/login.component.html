@@ -1,13 +1,12 @@
 <section>
-  <mat-spinner style="margin:0 auto;" mode="indeterminate" *ngIf="showSpinner"></mat-spinner>
   <div id="div-left">
-
     <mat-card>
-
       <!--Título-->
       <div class="title">
         <h1>Autenticação</h1>
         <mat-hint >com Java Web Token</mat-hint>
+        <mat-progress-spinner *ngIf="showSpinner" mode="indeterminate" >
+        </mat-progress-spinner>
       </div>
 
       <!--Registrar-->

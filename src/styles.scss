@@ -29,3 +29,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: var(--color05);
   color: var(--color01);
 }
+
+mat-progress-spinner {
+  margin:auto;
+  zoom: 0.2;
+}
+

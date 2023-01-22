@@ -12,14 +12,14 @@ import { UserModel } from '../../../model/UserModel';
 
 export class LoginComponent implements OnInit {
 
+  showSpinner = false;
+
   user : UserModel = new UserModel();
 
   form_email = new FormControl('', [Validators.required, Validators.email]);
   form_password = new FormControl('', [Validators.required]);
 
   hide = true;
-
-  showSpinner = false;
 
   constructor(
     private loginService : LoginService,
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   onEnter(){
@@ -43,7 +44,6 @@ export class LoginComponent implements OnInit {
       this.loginService.messageSuccess('Login realizado com sucesso.')
       this.router.navigate(['login/contact-book'], {relativeTo: this.route});
       this.showSpinner = false;
-
     });
   }
 
